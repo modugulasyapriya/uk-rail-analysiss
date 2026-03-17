@@ -9,7 +9,7 @@ from snowflake.snowpark.functions import col
 
 connection_parameters = {
     "account": "<YMIQDTH-MD94000>",
-    "user": "<MODUGULASYAPRIYA>",
+    "user": "<modugulasyapriya>",
     "password": "<lasyapriya379@ABC>",
     "role": "ACCOUNTADMIN",
     "warehouse": "COMPUTE_WH",
