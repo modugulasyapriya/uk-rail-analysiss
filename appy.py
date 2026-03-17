@@ -8,9 +8,9 @@ from snowflake.snowpark.functions import col
 # ---------------------------
 
 connection_parameters = {
-    "account": "<YMIQDTH-MD94000>",
-    "user": "<modugulasyapriya>",
-    "password": "<lasyapriya379@ABC>",
+    "account": "YMIQDTH-MD94000",
+"user": "modugulasyapriya",
+"password": "lasyapriya379@ABC",
     "role": "ACCOUNTADMIN",
     "warehouse": "COMPUTE_WH",
     "database": "UK_RAIL_DB",
@@ -35,7 +35,16 @@ ORDER BY Ticket_Count DESC
 LIMIT 10
 """
 
+
+# 1️⃣ Run the query and convert to pandas
 df1 = session.sql(query1).to_pandas()
+
+# 2️⃣ Make all column names uppercase
+df1.columns = df1.columns.str.upper()
+
+# 3️⃣ Now you can safely use these columns in Streamlit charts
+st.subheader("Top 10 Popular Routes")
+st.bar_chart(df1.set_index("DEPARTURE_STATION")["TICKET_COUNT"])
 
 st.subheader("Top 10 Popular Routes")
 st.bar_chart(df1.set_index("DEPARTURE_STATION")["TICKET_COUNT"])
