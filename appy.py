@@ -1,26 +1,23 @@
 import streamlit as st
 import pandas as pd
-from snowflake.snowpark.session import Session  # Use Session class to connect
+from snowflake.snowpark.session import Session  # <-- keep this import
 from snowflake.snowpark.functions import col
-
-st.title("🚆 UK Rail Ticket Dashboard")
 
 # ---------------------------
 # 1. CONNECT TO SNOWFLAKE
 # ---------------------------
 
-# It's better to define your Snowflake connection parameters
-# You can also store these in Streamlit secrets
 connection_parameters = {
-    "account": "<YOUR_ACCOUNT>",       # e.g., "YMIQDTH-MD94000"
-    "user": "<YOUR_USERNAME>",
-    "password": "<YOUR_PASSWORD>",
+    "account": "<YMIQDTH-MD94000>",
+    "user": "<MODUGULASYAPRIYA>",
+    "password": "<lasyapriya379@ABC>",
     "role": "ACCOUNTADMIN",
     "warehouse": "COMPUTE_WH",
     "database": "UK_RAIL_DB",
     "schema": "PUBLIC"
 }
 
+# CREATE THE SESSION BEFORE ANY QUERY
 session = Session.builder.configs(connection_parameters).create()
 
 # ---------------------------
