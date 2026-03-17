@@ -14,7 +14,7 @@ connection_parameters = {
     "role": "ACCOUNTADMIN",
     "warehouse": "COMPUTE_WH",
     "database": "UK_RAIL_DB",
-    "schema": "PUBLIC"
+    "schema": "GOLD"
 }
 
 # CREATE THE SESSION BEFORE ANY QUERY
